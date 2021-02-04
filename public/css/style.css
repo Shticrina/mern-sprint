@@ -1,0 +1,420 @@
+/* ==========================================================================
+   Base Styles, Bootstrap Modifications & Fonts Import
+   ========================================================================== */
+
+::-moz-selection {
+    background: #f2c2c9;
+    color: #a4003a;
+    text-shadow: none;
+}
+
+::selection {
+    background: #16a085;
+    color: #a4003a;
+    text-shadow: none;
+}
+
+.bg-secondary {
+	background-color: #555 !important;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+ hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.centered {
+	text-align: center
+}
+
+.display-5 {
+	font-size: 1.8rem;
+	font-weight: 300;
+	line-height: 1.2;
+}
+
+.w-30 {
+	width: 30%;
+}
+
+.w-40 {
+	width: 40%;
+}
+
+.mt {
+	margin-top: 80px;
+}
+
+.mb {
+	margin-bottom: 80px;
+}
+
+.ml30 {
+	margin-left: 30px;
+}
+
+.mt10 {
+	margin-top: 10px;
+}
+
+.mb10 {
+	margin-bottom: 10px;
+}
+
+.mt30 {
+	margin-top: 30px;
+}
+
+.mb30 {
+	margin-bottom: 30px;
+}
+
+.pb20 {
+	padding-bottom: 20px;
+}
+
+.pt20 {
+	padding-top: 20px;
+}
+
+.text12 {
+	font-size: 0.8rem !important;
+}
+
+/* ==========================================================================
+   General styles
+   ========================================================================== */
+
+body {
+    font-family: 'Questrial', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400;
+    color: #4a4a4a;
+    letter-spacing: 1.5px;
+}
+
+.navbar-brand {
+	/*font-weight: 700;*/
+	letter-spacing: 1.5px;
+}
+
+.navbar-default .navbar-brand {
+	color: #1abc9c;
+	/*color: #fa1048fa;*/
+}
+
+.navbar-default {
+	background-color: transparent;
+	border-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: #fa1048fa;
+	background-color: transparent;
+	border-bottom: 2px solid #fa1048fa;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #fa1048fa;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+}
+
+/* ==========================================================================
+   Wrap Sections
+   ========================================================================== */
+
+#headerwrap {
+	background: url(../img/switzerland.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 130px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 800px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#headerwrap h1 {
+	color:#3ed9fc;
+	color:#5edffc;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 3.6rem;
+	/*font-weight: normal;*/
+	text-shadow: -1px 1px 4px #454444d9;
+}
+
+#headerwrap h1 .cristina {
+	color:#5edffc;
+	/*text-shadow: -1px 1px 2px #1e1e1ed9;*/
+}
+
+#headerwrap h4 {
+	font-weight: 400;
+	color: #ffffff;
+	text-shadow: 0.1px 0.1px 6px #000;
+}
+
+#social {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	background-color: #f2f2f2;
+}
+
+#social i {
+	font-size: 40px;
+	color: #4a4a4a
+}
+
+#social i:hover {
+	color: #fa1048fa
+}
+
+#footerwrap {
+	/*padding-top: 70px;*/
+	/*padding-bottom: 50px;*/
+	background-color: rgba(54, 49, 42, 0.9);
+}
+
+#footerwrap p {
+	color: #3ed9fc;
+	/*color: #d2b5bffa;*/
+	margin-left: 10px;
+	letter-spacing: 1.1px;
+	font-size: 1rem;
+}
+
+#workwrap {	
+	background: url(../img/work.jpg) no-repeat center top;
+	margin-top: -70px;
+	padding-top: 250px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 650px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#workwrap h1 {
+	color:#ffffff;
+	padding-top: 10px;
+	padding-bottom: 20px;
+	letter-spacing: 4px;
+	font-size: 80px;
+	font-weight: bold;
+}
+
+#workwrap h4 {
+	font-weight: 400;
+	color: #ffffff
+}
+
+#contactwrap .btn.btn-primary.red,
+.portfolio-modal.modal a.btn.btn-primary.red {
+	color: #534545;
+	background-color: #83e6fc;
+	border-color: #83e6fc;
+	width: 9rem;
+}
+
+/*#aboutwrap {	*/
+.triangle {	
+	background: url(../img/about2.png) no-repeat center top;
+	/*margin-top: -70px;*/
+	/*padding-top: 250px;*/
+	text-align:center;
+	background-attachment: relative;
+	background-position: center center;
+	min-height: 200px;
+	width: 100%;
+	
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.abs {
+	margin-top: -50px;
+}
+
+.gallery .detail img, .paragraph {
+	/*width: 90%;
+	margin-left: 5%;*/
+}
+
+hr.pink {
+	background-color: #2cc6e9;
+	height: 1px;
+	border: 0 !important;
+}
+
+hr.pink2 {
+	background-color: #2cc6e9;
+	height: 0.6px;
+	border: 0 !important;
+}
+
+.border-none {
+	border: 0 !important;
+}
+
+.grey, .white {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+
+/* Gallery */
+.gallery {
+	margin-top: 30px;
+	position: relative;
+}
+
+.gallery .cadre {
+	background-color: #aaa;
+	width: 90%;
+	height: 265px;
+}
+
+.gallery .cadre2 {
+	width: 90%;
+	margin-top: -280px;
+	margin-right: 20px;
+	margin-left: -17px;
+}
+
+.gallery .detail img {
+	box-shadow: 9px -10px #fff;
+	border: 0.5px solid #ccc;
+}
+
+.paragraph h3 {
+	margin-top: 10px;
+}
+
+.blockline {
+	background-color: #fff;
+	height: 1px;
+	width: 30%;
+	border: 0;
+}
+
+.gallery img:hover {
+	opacity: 0.5;
+}
+
+.alert.alert-success {
+    color: #000 !important;
+    background-color: #83e6fc !important;
+    border-color: none !important;
+}
+
+#headerwrap .container .row {
+    margin-top: 3rem !important;
+    padding-top: 3rem !important;
+}
+
+#aboutwrap .container.bg-white .row.first,
+#contactwrap .container.bg-white .row.first {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+    padding-bottom: 1rem !important;
+}
+
+@media (min-width: 767px) {
+	#portfolio .portfolio-item .portfolio-caption h5 {
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 767px) {
+	#headerwrap {
+	    margin-top: 0;
+	    padding-top: 0;
+	    min-height: 600px;
+	}
+
+	#headerwrap .container .row {
+	    margin-top: 0 !important;
+	    padding-top: 0 !important;
+	}
+
+	.absolute-block {
+		top: 28px;
+	}
+
+	#contact-form .display-5 {
+	    font-size: 1.5rem;
+	}
+
+	#aboutwrap .container.bg-white .row.first,
+	#contactwrap .container.bg-white .row.first {
+	    margin-top: 1rem !important;
+	    margin-bottom: 1rem !important;
+	}
+
+	#portfolio .portfolio-item {
+	    padding-left: 2.5rem!important;
+	    padding-right: 2.5rem!important;
+	}
+
+	.portfolio-modal .modal-body .website {
+	    margin-bottom: 1rem!important;
+	}
+
+	#portfolio .portfolio-item .portfolio-caption h5 {
+		font-size: 1.3rem;
+	}
+
+	.portfolio-modal .modal-content h2 {
+	    font-size: 2rem;
+	}
+
+	.portfolio-modal .modal-body .col-md-7.pl-5 {
+		padding-left: 1rem!important;
+		padding-right: 1rem!important;
+	}
+}

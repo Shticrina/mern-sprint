@@ -1,0 +1,64 @@
+/* Body */
+body {
+	margin: 0;
+	/*font-family: Arial, Helvetica, sans-serif;*/
+	font-size: 0.9em;
+	background-color: #ddd;
+}
+
+a {
+	font-size: 0.9em!important;
+}
+
+.text-42 {
+	font-size: 42px;
+}
+
+.card a:hover {
+	background-color: #f76c68!important;
+	color: #fff!important;
+	border-radius: 18px;
+	-webkit-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
+	-ms-box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
+	box-shadow: 4px 4px 10px -4px rgba(0, 0, 0, 0.75);
+}
+
+/*same height in text cards: show only 3 lines in paragraph, then add "..." (the rest is hidden)*/
+.card p.card-text {
+	overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+nav#sidebar ul.nav li a.nav-link.text-uppercase.text-dark:hover {
+	color: #f76c68!important;
+}
+
+/*Collapsible sidebar*/
+#sidebar {
+    min-width: 210px;
+    max-width: 210px;
+    min-height: 100vh;
+}
+
+#sidebar.active {
+    margin-left: -210px;
+}
+
+/************************ Responsive ************************/
+
+@media (max-width: 992px) {
+	
+}
+
+/*// Small devices*/
+@media (max-width: 768px) {
+	#sidebar {
+        margin-left: -210px;
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
