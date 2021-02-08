@@ -12,10 +12,12 @@ const Projects = () => {
 	const [projects, setProjects] = useState([]);
 	const [count, setCount] = useState(0);
 
+	useEffect(() => {
+	    document.title = `Vous avez cliqué ${count} fois`;
+  	}, [count]);
+
 	// Same as componentDidMount and componentDidUpdate
   	useEffect(() => {
-	    document.title = `Vous avez cliqué ${count} fois`;
-
 	    async function getProjects() {
 	    	const response = await api.get('projects/all');
 	    	console.log(response.data);

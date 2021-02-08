@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faUsers, faPalette, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
+import { Button, Modal } from "react-bootstrap";
+import ProjectModal from '../components/modals/ProjectModal';
 
 const Dashboard = () => {
+	const [display, setDisplay] = useState(false);
+	const [type, setType] = useState('');
+
 	return (
+		<>
+		<ProjectModal show={display} onHide={() => setDisplay(false)} type={type}></ProjectModal>
+
 		<div className="d-flex align-items-stretch pt-5">
 			<nav id="sidebar" className="bg-white py-4 pl-4">
 				<div className="sidebar-header pt-5">
@@ -37,9 +45,7 @@ const Dashboard = () => {
 				<div className="mt-4 d-flex justify-content-between">
 					<h3 className="text-dark">Projects</h3>
 
-					<button type="button" className="btn btn-info">
-						Add new
-					</button>
+					<Button variant="info" onClick={() => { setDisplay(true); setType('add'); }} >Add new</Button>
 				</div>
 
 				<div className="projects d-flex my-4 bg-white">
@@ -61,8 +67,13 @@ const Dashboard = () => {
 								<td>Otto</td>
 								<td>2020</td>
 								<td>
-									<FontAwesomeIcon icon={faPencilAlt} className="text-info mr-3" />
-									<FontAwesomeIcon icon={faTrash} className="text-danger" />
+									<Button variant="link" onClick={() => { setDisplay(true); setType('edit'); }}>
+										<FontAwesomeIcon icon={faPencilAlt} className="text-info" />
+									</Button>
+
+									<Button variant="link">
+										<FontAwesomeIcon icon={faTrash} className="text-danger" />
+									</Button>
 								</td>
 							</tr>
 							<tr>
@@ -71,8 +82,13 @@ const Dashboard = () => {
 								<td>Thornton</td>
 								<td>2020</td>
 								<td>
-									<FontAwesomeIcon icon={faPencilAlt} className="text-info mr-3" />
-									<FontAwesomeIcon icon={faTrash} className="text-danger" />
+									<Button variant="link">
+										<FontAwesomeIcon icon={faPencilAlt} className="text-info" />
+									</Button>
+
+									<Button variant="link">
+										<FontAwesomeIcon icon={faTrash} className="text-danger" />
+									</Button>
 								</td>
 							</tr>
 							<tr>
@@ -81,15 +97,21 @@ const Dashboard = () => {
 								<td>the Bird</td>
 								<td>2020</td>
 								<td>
-									<FontAwesomeIcon icon={faPencilAlt} className="text-info mr-3" />
-									<FontAwesomeIcon icon={faTrash} className="text-danger" />
+									<Button variant="link">
+										<FontAwesomeIcon icon={faPencilAlt} className="text-info" />
+									</Button>
+
+									<Button variant="link">
+										<FontAwesomeIcon icon={faTrash} className="text-danger" />
+									</Button>
 								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>   
-			</div>   
+			</div>  
 		</div>
+		</>
 	);
 }
 
