@@ -12,17 +12,16 @@ const ProjectModal = (props) => {
 	      	centered
       	>
 	    	<Modal.Header closeButton>
-	    		<Modal.Title id="contained-modal-title-vcenter">{props.type == 'add' ? 'Add new ' : 'Edit '} project</Modal.Title>
+	    		<Modal.Title id="contained-modal-title-vcenter">{props.type == 'add' ? 'Add new project' : 'Edit project x'}</Modal.Title>
 	    	</Modal.Header>
 
 	    	<Modal.Body>
-	    		<h4>Centered Modal</h4>
+	    		<h4>{props.type == 'add' ? 'Add new ' : 'Edit '} form</h4>
 	    		<p>here will be the form</p>
     		</Modal.Body>
 
 	    	<Modal.Footer>
-	    		<p>modal footer</p>
-	    		<Button>Submit form</Button>
+	    		<Button variant="info">{props.type == 'add' ? 'Add' : 'Update'}</Button>
     		</Modal.Footer>
 	    </Modal>
     );
