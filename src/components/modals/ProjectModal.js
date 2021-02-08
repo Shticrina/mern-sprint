@@ -18,6 +18,8 @@ const ProjectModal = (props) => {
 	    	<Modal.Body>
 	    		<h4>{props.type == 'add' ? 'Add new ' : 'Edit '} form</h4>
 	    		<p>here will be the form</p>
+	    		<p>title: {props.title}</p>
+	    		<p>description: {props.description}</p>
     		</Modal.Body>
 
 	    	<Modal.Footer>

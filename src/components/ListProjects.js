@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import api from '../api';
-// import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import Project from '../components/partials/Project';
-// import pp from '../controllers/ProjectController';
 
 const getOneProject = async () => await api.get('projects/find');
 
