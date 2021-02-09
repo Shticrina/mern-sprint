@@ -9,6 +9,8 @@ import Projects from '../components/dashboard/Projects';
 import Users from '../components/dashboard/Users';
 
 const Dashboard = () => {
+	document.title = 'Dashboard';
+	
 	return (
 		<>
 		<div className="d-flex align-items-stretch pt-5">

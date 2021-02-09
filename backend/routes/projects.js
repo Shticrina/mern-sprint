@@ -30,4 +30,14 @@ router.route('/find').get((req, res) => {
 	});
 });
 
+router.route('/create').post((req, res) => {
+	res.header("Content-Type",'application/json');
+
+	let title = req.body.title;
+	let description = req.body.description;
+	let newProject = new Project({title, description});
+
+	newProject.save();
+});
+
 module.exports = router;

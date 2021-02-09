@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Contact = () => {
+    document.title = 'Contact'; 
+    
     return (
         <section className="bg-light py-5">
         	<h3 className="text-center mt-5 mb-4 pb-2">Leave me a message</h3>

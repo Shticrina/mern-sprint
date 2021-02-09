@@ -1,6 +1,9 @@
 import React from 'react';
 
-const About = () => {
+const About = (props) => {
+    document.title = 'About';
+    // console.log(props.location);
+
     return (
         <section className="bg-light py-5">
         	<h3 className="text-center mt-5 mb-4 pb-2">About me</h3>

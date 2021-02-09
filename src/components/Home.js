@@ -1,6 +1,9 @@
 import React from 'react';
 
-const Home = () => {
+const Home = (props) => {
+    document.title = 'Home'; 
+    // console.log(props.location);
+
     return (
         <section className="bg-light py-5">
         	<h3 className="text-center mt-5 mb-4 pb-2">Home page</h3>

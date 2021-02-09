@@ -27,5 +27,4 @@ mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true, useCreateIndex:
 
 // Routes (import & use)
 app.use('/api/projects', require('./routes/projects'));
-
 // app.use('/users', require('./routes/auth'));

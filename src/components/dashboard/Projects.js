@@ -8,13 +8,13 @@ import ProjectModal from '../../components/modals/ProjectModal';
 const Projects = () => {
 	const [display, setDisplay] = useState(false);
 	const [type, setType] = useState('');
-	const [project, setProject] = useState({});
+	const [requiredProject, setRequiredProject] = useState('');
 	const [projects, setProjects] = useState([]);
 
 	useEffect(() => {
 	    async function getProjects() {
 	    	const response = await api.get('projects/all');
-	    	console.log(response.data);
+	    	// console.log(response.data);
 
 	    	setProjects(response.data);
 		}
@@ -24,7 +24,7 @@ const Projects = () => {
 
     return (
     	<>
-	    	<ProjectModal show={display} onHide={() => setDisplay(false)} type={type}></ProjectModal>
+	    	<ProjectModal show={display} onHide={() => setDisplay(false)} type={type} currentproject={requiredProject} projects={projects}></ProjectModal>
 
 	        <div className="mt-4 d-flex justify-content-between">
 				<h3 className="text-dark">Projects</h3>
@@ -45,14 +45,14 @@ const Projects = () => {
 					</thead>
 
 					<tbody>
-						{projects.map((project) => (	          		
-							<tr key={project._id}>
+						{projects.map((project, index) => (	          		
+							<tr key={index}>
 								<td scope="row">{project._id}</td>
 								<td>{project.title}</td>
 								<td>{project.description}</td>
 								<td>{project.created_at}</td>
 								<td>
-									<Button variant="link" onClick={() => { setDisplay(true); setType('edit');  setProject(project); }}>
+									<Button variant="link" onClick={() => { setDisplay(true); setType('edit');  setRequiredProject(project); }}>
 										<FontAwesomeIcon icon={faPencilAlt} className="text-info" />
 									</Button>
 

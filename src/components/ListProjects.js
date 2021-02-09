@@ -7,6 +7,7 @@ import Project from '../components/partials/Project';
 const getOneProject = async () => await api.get('projects/find');
 
 const Projects = () => {
+	document.title = 'Projects';
 	const [projects, setProjects] = useState([]);
 	const [count, setCount] = useState(0);
 
@@ -52,7 +53,6 @@ const Projects = () => {
 	                </div>
 	            </div>
             </div>
-
         </section>
     );
 }

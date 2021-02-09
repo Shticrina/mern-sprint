@@ -1,5 +1,5 @@
 import './App.css';
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Import components
@@ -12,10 +12,12 @@ import Contact from './components/Contact';
 import Dashboard from './components/Dashboard';
 
 function App() {
+	document.title = 'Home';
+
 	return (
 		<Router>
 			<div className="App">
-			  	<Header />
+			  	<Header/>
 
 			  	<Route path="/" exact component={Home} />
 			  	<Route path="/about" component={About} />

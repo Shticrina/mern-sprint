@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-// import logo from '../images/default_project.jpg';
+import { useLocation } from 'react-router-dom';
 
-const Header = () => {
+const Header = (props) => {
 	const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 	const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+  	const location = useLocation();
+	const url = location.pathname;
+	// console.log(url.substring(1));
 
 	return (
       	<nav className="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
@@ -14,29 +17,31 @@ const Header = () => {
 						<span className="navbar-toggler-icon"></span>
 					</button>
 
-					<div className="flex-fill pl-4">
-						<Link to="/" className="navbar-brand js-scroll-trigger">
-							<img src="/images/default_user.png" className="w-25" alt="logo" />
+					<div className="flex-fill d-flex align-items-center">
+						<Link to="/" className="navbar-brand js-scroll-trigger w-25 p-0">
+							<img src="/images/default_user.png" className="w-100" alt="logo" />
 						</Link>
+
+						<small className="text-danger">({ url.substring(1) !== '' ? url.substring(1) : 'home' })</small>
 					</div>
 				</div>
 
-				<div className={`${isNavCollapsed ? 'collapse' : ''} mx-auto navbar-collapse col-lg-8`} id="navbarResponsive">
+				<div className={`${isNavCollapsed ? 'collapse' : ''} mx-auto navbar-collapse col-lg-9`} id="navbarResponsive">
 					<ul className="nav navbar-nav text-uppercase">
 						<li className="nav-item px-5 active">
-							<Link to="/" className="nav-link js-scroll-trigger">Home</Link>
+							<Link to="/" className="nav-link ">Home</Link>
 						</li>
 						<li className="nav-item px-5">
-							<Link to="/about" className="nav-link js-scroll-trigger">About</Link>
+							<Link to="/about" className="nav-link ">About</Link>
 						</li>
 						<li className="nav-item px-5">
-							<Link to="/projects" className="nav-link js-scroll-trigger">Projects</Link>
+							<Link to="/projects" className="nav-link ">Projects</Link>
 						</li>
 						<li className="nav-item px-5">
-							<Link to="/contact" className="nav-link js-scroll-trigger">Contact</Link>
+							<Link to="/contact" className="nav-link ">Contact</Link>
 						</li>
 						<li className="nav-item px-5">
-							<Link to="/dashboard" className="nav-link js-scroll-trigger">Dashboard</Link>
+							<Link to="/dashboard" className="nav-link ">Dashboard</Link>
 						</li>
 					</ul>
 				</div>

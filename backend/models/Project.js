@@ -21,14 +21,6 @@ const projectSchema = new mongoose.Schema({
         type: String,
         maxLength: 190,
         default : '/images/default_project.jpg'
-    },
-    created_at: {
-        type: Date,
-        default: Date.now
-    },
-    updated_at: {
-        type: Date,
-        default: Date.now
     }
 },
 {
