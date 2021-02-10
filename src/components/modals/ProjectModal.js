@@ -1,15 +1,13 @@
 import React from 'react';
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import AddProjectForm from '../../components/forms/AddProjectForm';
 
 const ProjectModal = (props) => {
-
 	const project = props.currentproject;
-	 // onSubmit={addProject} in AddProjectForm
-
-	/*const addProject = (project) => {
-		const newProjects = [project, ...projects];
-	};*/
+	 
+	function closeModal() {
+	    console.log("have to close the modal!"); // ok
+	}
 
 	return (
       	<Modal
@@ -25,7 +23,7 @@ const ProjectModal = (props) => {
 	    	</Modal.Header>
 
 	    	<Modal.Body className="col-10 mx-auto">
-	    		<AddProjectForm projects={props.projects}></AddProjectForm>
+	    		<AddProjectForm projects={props.projects} type={props.type} currentproject={project ? project : ''}  onChildClick={closeModal}></AddProjectForm>
     		</Modal.Body>
 	    </Modal>
     );

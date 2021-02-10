@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../api';
-import { Button, Modal } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 import ProjectModal from '../../components/modals/ProjectModal';
@@ -11,11 +11,29 @@ const Projects = () => {
 	const [requiredProject, setRequiredProject] = useState('');
 	const [projects, setProjects] = useState([]);
 
+	const handleRemove = (id) => {
+	    api.delete(`projects/delete/${id}`)
+		.then(res => {
+			console.log(res.status);
+
+			if (res.status === 200) {
+				// show success message
+				console.log('Project successfuly removed.');
+
+				// update projects
+				/*setProjects(previousProjects => {
+					return previousProjects.filter(p => p._id !== id);
+				});*/
+			}			
+		})
+		.catch(err => {
+			console.log(err);
+		});
+	};
+
 	useEffect(() => {
 	    async function getProjects() {
 	    	const response = await api.get('projects/all');
-	    	// console.log(response.data);
-
 	    	setProjects(response.data);
 		}
 
@@ -47,16 +65,16 @@ const Projects = () => {
 					<tbody>
 						{projects.map((project, index) => (	          		
 							<tr key={index}>
-								<td scope="row">{project._id}</td>
+								<td>{project._id}</td>
 								<td>{project.title}</td>
 								<td>{project.description}</td>
-								<td>{project.created_at}</td>
+								<td>{project.createdAt}</td>
 								<td>
 									<Button variant="link" onClick={() => { setDisplay(true); setType('edit');  setRequiredProject(project); }}>
 										<FontAwesomeIcon icon={faPencilAlt} className="text-info" />
 									</Button>
 
-									<Button variant="link">
+									<Button variant="link" onClick={() => handleRemove(project._id)}>
 										<FontAwesomeIcon icon={faTrash} className="text-danger" />
 									</Button>
 								</td>

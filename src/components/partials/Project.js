@@ -1,9 +1,17 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const Project = ({ project }) => {
-	// console.log(project._id);
     return (
-        <li className="list-group-item text-info my-1"><img src={project.image} className="" style={{width: 60+ 'px'}} alt="logo" /> / {project.title} / {project.description} / {project.created_at}</li>
+        <div className="col-md-4 col-sm-6 mx-auto px-5 mb-5">
+        	<Link to="/" className="">
+				<img className="img-fluid" src={project.image} alt={project.title} />
+			</Link>
+
+			<div className="text-uppercase text-center pt-3">
+				<h5>{project.title}</h5>
+			</div>
+		</div>
     );
 }
 

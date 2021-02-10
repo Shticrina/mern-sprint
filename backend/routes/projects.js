@@ -11,9 +11,7 @@ router.route('/all').get((req, res) => {
 
     Project.find()
     .then((result) => {
-    	// console.log(res.json(result));
-    	// return res.json(result);
-        res.send(JSON.stringify(result, null, 4));
+    	res.send(JSON.stringify(result, null, 4));
     })
     .catch((err) => res.status(400).json("Error: " + err));
 });
@@ -38,6 +36,28 @@ router.route('/create').post((req, res) => {
 	let newProject = new Project({title, description});
 
 	newProject.save();
+});
+
+router.route('/update/:id').post((req, res) => {
+	let project = new Project({
+	    _id: req.params.id,
+	    title: req.body.title,
+	    description: req.body.description
+  	});
+
+  	Project.findOneAndUpdate({_id: id}, project)
+	.then((result) => {
+    	res.send(JSON.stringify(result, null, 4));
+    })
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
+router.route('/delete/:id').delete((req, res) => {
+	Project.findByIdAndDelete(req.params.id)
+	.then((result) => {
+    	res.send(JSON.stringify(result, null, 4));
+    })
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
 module.exports = router;

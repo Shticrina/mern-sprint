@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React from 'react';
+import { Link, Route } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faUsers, faPalette, faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons';
 
