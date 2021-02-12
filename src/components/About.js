@@ -6,7 +6,7 @@ const About = (props) => {
 
     return (
         <section className="bg-light page-section" id="aboutwrap">
-            <h3 className="text-center mt-5 mb-4 pb-2">About me</h3>
+            <h3 className="text-center mt-5 mb-4 pb-2 display-3">About me</h3>
             
             <div className="container bg-white pt-3">
                 <div className="row first centered">

@@ -4,10 +4,7 @@ import AddProjectForm from '../../components/forms/AddProjectForm';
 
 const ProjectModal = (props) => {
 	const project = props.currentproject;
-	 
-	function closeModal() {
-	    console.log("have to close the modal!"); // ok
-	}
+	// setCurrentProject after create or edit
 
 	return (
       	<Modal
@@ -23,7 +20,7 @@ const ProjectModal = (props) => {
 	    	</Modal.Header>
 
 	    	<Modal.Body className="col-10 mx-auto">
-	    		<AddProjectForm projects={props.projects} type={props.type} currentproject={project ? project : ''}  onChildClick={closeModal}></AddProjectForm>
+	    		<AddProjectForm type={props.type} currentproject={project ? project : ''} addproject={props.addproject} onChildClick={props.onHide} ></AddProjectForm>
     		</Modal.Body>
 	    </Modal>
     );

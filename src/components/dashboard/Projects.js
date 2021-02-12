@@ -3,6 +3,10 @@ import api from '../../api';
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
+import Moment from 'react-moment';
+import 'moment-timezone';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import ProjectModal from '../../components/modals/ProjectModal';
 
 const Projects = () => {
@@ -14,16 +18,14 @@ const Projects = () => {
 	const handleRemove = (id) => {
 	    api.delete(`projects/delete/${id}`)
 		.then(res => {
-			console.log(res.status);
-
 			if (res.status === 200) {
 				// show success message
-				console.log('Project successfuly removed.');
+				toast.success("Project successfuly removed.", {className: 'toast-success'});
 
 				// update projects
-				/*setProjects(previousProjects => {
+				setProjects(previousProjects => {
 					return previousProjects.filter(p => p._id !== id);
-				});*/
+				});
 			}			
 		})
 		.catch(err => {
@@ -40,9 +42,33 @@ const Projects = () => {
 		getProjects();
   	}, []);	
 
+  	function addproject() {
+  		console.log('here will add new project');
+
+  		/*setProjects(previousProjects => {
+			return [...previousProjects, newProject];
+		});*/
+  	}
+
+  	/*function updateProject() {
+  		console.log('here will update one project');
+  		// const projectList = [...projects];
+
+	  	/*setProjects({
+	    	projectList[0].recipe: newProject
+	  	});
+  	}*/
+
     return (
     	<>
-	    	<ProjectModal show={display} onHide={() => setDisplay(false)} type={type} currentproject={requiredProject} projects={projects}></ProjectModal>
+    		<ToastContainer
+				position="top-center"
+				autoClose={5000}
+				hideProgressBar={true}
+				newestOnTop={true}
+				closeOnClick
+			/>
+	    	<ProjectModal show={display} onHide={() => setDisplay(false)} type={type} currentproject={requiredProject} addproject={() => addproject()} projects={projects} setProjects={setProjects}></ProjectModal>
 
 	        <div className="mt-4 d-flex justify-content-between">
 				<h3 className="text-dark">Projects</h3>
@@ -65,10 +91,12 @@ const Projects = () => {
 					<tbody>
 						{projects.map((project, index) => (	          		
 							<tr key={index}>
-								<td>{project._id}</td>
+								<td><small>{project._id}</small></td>
 								<td>{project.title}</td>
 								<td>{project.description}</td>
-								<td>{project.createdAt}</td>
+								<td>
+									<Moment format="D MMM YYYY" withTitle>{project.createdAt}</Moment>
+								</td>
 								<td>
 									<Button variant="link" onClick={() => { setDisplay(true); setType('edit');  setRequiredProject(project); }}>
 										<FontAwesomeIcon icon={faPencilAlt} className="text-info" />

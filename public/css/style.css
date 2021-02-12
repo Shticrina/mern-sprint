@@ -14,6 +14,52 @@
     text-shadow: none;
 }
 
+/*Toastify__toast Toastify__toast--success toast-success*/
+.Toastify__toast-container {
+    width: auto !important;
+}
+
+.Toastify__close-button {
+	margin-left: 20px !important;
+}
+
+.Toastify__toast {
+    min-height: 42px !important;
+    padding: 0 1.3em !important;
+}
+
+.Toastify__toast--info {
+    background: #17a2b8cc !important;
+}
+
+.Toastify__toast--success {
+    background: #54d9a1b8 !important;
+}
+
+.Toastify__toast--danger {
+    background: #dc3545d4 !important;
+}
+
+.Toastify__toast--warning {
+    background: #d9ae2dde !important;
+}
+
+.btn-warning, .bg-warning {
+    background: #e3be4d !important;
+}
+
+.btn-success, .bg-success {
+    background: #17b8a2 !important;
+}
+
+.text-warning {
+    color: #e3be4d !important;
+}
+
+.text-success {
+    color: #17b8a2 !important;
+}
+
 .bg-secondary {
 	background-color: #555 !important;
 }

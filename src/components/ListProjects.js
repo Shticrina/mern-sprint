@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import Project from '../components/partials/Project';
 
-const getOneProject = async () => await api.get('projects/find');
+// const getOneProject = async () => await api.get('projects/find');
 
 const Projects = () => {
 	document.title = 'Projects';
@@ -26,15 +26,14 @@ const Projects = () => {
 
 		getProjects();
 
-		getOneProject().then(response => {
+		/*getOneProject().then(response => {
 	    	const one_project = response.data;
-			// console.log(one_project);
-		});
+		});*/
   	}, []);	
 
     return (
       	<section className="bg-light py-5">
-        	<h3 className="text-center mt-5 mb-4 pb-2">Projects</h3>
+        	<h3 className="text-center mt-5 mb-4 pb-2 display-3">Projects</h3>
 
         	<div className="container d-flex justify-content-end align-items-center mb-3">
 	      		<button onClick={() => setCount(count + 1)} className="btn btn-info mr-4">Cliquez ici</button>

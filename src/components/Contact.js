@@ -5,7 +5,7 @@ const Contact = () => {
     
     return (
         <section className="bg-light page-section" id="contactwrap">
-            <h3 className="text-center mt-5 mb-4 pb-2">Leave me a message</h3>
+            <h3 className="text-center mt-5 mb-4 pb-2 display-4">Leave me a message</h3>
             
             <div className="container bg-white pt-3">
                 <div className="row first">

@@ -45,7 +45,7 @@ router.route('/update/:id').post((req, res) => {
 	    description: req.body.description
   	});
 
-  	Project.findOneAndUpdate({_id: id}, project)
+  	Project.findOneAndUpdate({_id: req.params.id}, project)
 	.then((result) => {
     	res.send(JSON.stringify(result, null, 4));
     })
