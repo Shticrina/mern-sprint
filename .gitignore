@@ -23,6 +23,3 @@ yarn-debug.log*
 yarn-error.log*
 
 package-lock.json
-/backend/node_modules
-/backend/.env
-/backend/package-lock.json
