@@ -4,7 +4,7 @@ import api from '../../api';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const AddProjectForm = ({type, currentproject, onChildClick, addproject}) => {
+const AddProjectForm = ({type, currentproject, onChildClick, addproject, projects, index, setprojects}) => {
 	const projectTitle = useRef();
 	const projectDescription = useRef();
 	const projectImage = useRef();
@@ -39,15 +39,33 @@ const AddProjectForm = ({type, currentproject, onChildClick, addproject}) => {
 			image: imageValue
 		};
 
+		// console.log(type); //ok
+
 		if (type === 'edit' && currentproject !== '') {
-			api.post(`projects/update/${currentproject._id}`, newProject);
-			// updateproject()
+			api.post(`projects/update/${currentproject._id}`, newProject);			
+
+	        // Update the parent state
+	        setprojects(previousProjects => {
+				return previousProjects.splice(index, 1, newProject); // Replace the current expense item
+			});
+
+			// addproject();
+	        // console.log(projects); // ok
+
 			toast.success("Project successfuly updated.", {className: 'toast-success'});
 		} else {
 			// api.post('projects/create', newProject);
-			addproject();
+
+			setprojects(previousProjects => {
+				return [{...previousProjects, newProject}];
+			});
+
+	        console.log(newProject); // ok
+
 			toast.success("Project successfuly created.", {className: 'toast-success'});
 		}
+			
+		addproject();
 
 		// reset the form
 		projectTitle.current.value = projectDescription.current.value = projectImage.current.value= null;
@@ -57,7 +75,7 @@ const AddProjectForm = ({type, currentproject, onChildClick, addproject}) => {
     	<>
     	<ToastContainer
 			position="top-center"
-			autoClose={50000}
+			autoClose={5000}
 			hideProgressBar={true}
 			newestOnTop={true}
 			closeOnClick

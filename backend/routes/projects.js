@@ -35,7 +35,11 @@ router.route('/create').post((req, res) => {
 	let description = req.body.description;
 	let newProject = new Project({title, description});
 
-	newProject.save();
+	newProject.save()
+	.then(function (newProject) {
+        console.log('user created!', newProject);
+        res.send(JSON.stringify(newProject, null, 4));
+  	});
 });
 
 router.route('/update/:id').post((req, res) => {
