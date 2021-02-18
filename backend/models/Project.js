@@ -8,7 +8,11 @@ const projectSchema = new mongoose.Schema({
         trim: true,
         unique: true,
         minLength: 2,
-        maxLength: 160
+        maxLength: 300
+    },
+    headline: {
+        type: String,
+        trim: true
     },
     description: {
         type: String,
@@ -17,10 +21,31 @@ const projectSchema = new mongoose.Schema({
         minLength: 2,
         maxLength: 900
     },
+    when: {
+        type: String,
+        trim: true
+    },
+    company: {
+        type: String,
+        trim: true
+    },
+    techno: {
+        type: Array
+    },
+    fields: {
+        type: Array
+    },
+    intervention: {
+        type: Array
+    },
     image: {
         type: String,
         maxLength: 190,
         default : '/images/default_project.jpg'
+    },
+    website: {
+        type: String,
+        trim: true
     }
 },
 {

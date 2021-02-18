@@ -32,12 +32,32 @@ router.route('/create').post((req, res) => {
 	res.header("Content-Type",'application/json');
 
 	let title = req.body.title;
+	let headline = req.body.headline;
 	let description = req.body.description;
-	let newProject = new Project({title, description});
+	let when = req.body.when;
+	let company = req.body.company;
+	let techno = req.body.techno;
+	let fields = req.body.fields;
+	let intervention = req.body.intervention;
+	let website = req.body.website;
+	let image = req.body.image;
+
+	let newProject = new Project({
+		title, 
+		headline,
+		description,
+		when,
+		company,
+		techno,
+		fields,
+		intervention,
+		website,
+		image
+	});
 
 	newProject.save()
 	.then(function (newProject) {
-        console.log('user created!', newProject);
+        console.log('project created!', newProject);
         res.send(JSON.stringify(newProject, null, 4));
   	});
 });
@@ -46,6 +66,14 @@ router.route('/update/:id').post((req, res) => {
 	let project = new Project({
 	    _id: req.params.id,
 	    title: req.body.title,
+	    headline: req.body.headline,
+	    when: req.body.when,
+	    company: req.body.company,
+	    techno: req.body.techno,
+	    fields: req.body.fields,
+	    intervention: req.body.intervention,
+	    website: req.body.website,
+	    image: req.body.image,
 	    description: req.body.description
   	});
 
